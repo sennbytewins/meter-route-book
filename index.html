@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meter Route Book</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Meter Route Book</h1>
+    <p class="subtitle">Search by account number, service address, ECR number, MXU number, or route to find meter location details.</p>
+
+    <div class="search-area">
+      <input id="searchInput" type="text" placeholder="Search account, address, ECR, MXU, or route...">
+      <button onclick="searchRouteBook()">Search</button>
+      <button onclick="clearSearch()" class="clear-button">Clear</button>
+    </div>
+
+    <div class="tool-area">
+      <button onclick="showAllRecords()" class="show-all-button">Show All Meter Locations</button>
+    </div>
+    <div class="report-section">
+  <h2>Route / Cycle Review</h2>
+  <p class="report-help">Use this to review multiple meter locations in a compact row-style list.</p>
+
+  <div class="report-controls">
+    <div>
+      <label for="routeReportInput">Route</label>
+      <input id="routeReportInput" type="text" placeholder="Example: 514">
+    </div>
+
+    <div>
+      <label for="cycleReportSelect">Cycle</label>
+      <select id="cycleReportSelect">
+        <option value="">All Cycles</option>
+        <option value="Cycle 1">Cycle 1</option>
+        <option value="Cycle 2">Cycle 2</option>
+        <option value="Cycle 3">Cycle 3</option>
+        <option value="Cycle 4">Cycle 4</option>
+        <option value="Cycle 5">Cycle 5</option>
+        <option value="Cycle 6">Cycle 6</option>
+        <option value="Cycle 7">Cycle 7</option>
+        <option value="Cycle 8">Cycle 8</option>
+        <option value="INA">INA</option>
+      </select>
+    </div>
+
+    <button onclick="runRouteCycleReport()">Run Report</button>
+<button onclick="exportRouteCycleReportPdf()" class="pdf-button">Export Report PDF</button>
+<button onclick="clearRouteCycleReport()" class="clear-button">Clear Report</button>
+  </div>
+</div>
+
+    <div id="results"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

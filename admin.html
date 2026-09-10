@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meter Route Book</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Meter Route Book</h1>
+    <p class="subtitle">Search by account number, service address, ECR number, MXU number, or route to find meter location details.</p>
+
+    <div class="search-area">
+      <input id="searchInput" type="text" placeholder="Search account, address, ECR, MXU, or route...">
+      <button onclick="searchRouteBook()">Search</button>
+      <button onclick="clearSearch()" class="clear-button">Clear</button>
+    </div>
+   <div class="tool-area">
+  <button onclick="showAllRecords()" class="show-all-button">Show All Test Records</button>
+
+  <button onclick="exportRecords()" class="export-button">Export Test Data</button>
+
+  <label for="importFile" class="import-button">Import Test Data</label>
+  <input id="importFile" type="file" accept=".json" onchange="importRecords(event)">
+
+  <label for="csvUpdateFile" class="csv-update-button">Import CSV Account Updates</label>
+  <input id="csvUpdateFile" type="file" accept=".csv" onchange="importCsvAccountUpdates(event)">
+
+</div>
+<div class="danger-zone">
+  <h3>Danger Zone</h3>
+  <p>Use this only when you need to completely clear the test database.</p>
+
+  <button onclick="clearEntireDatabase()" class="clear-database-button">
+    Clear ALL Data
+  </button>
+</div>
+  <div id="results"></div>
+
+<button onclick="toggleAddForm()" class="form-toggle-button" id="formToggleButton">
+  Show Add/Edit Form
+</button>
+
+<div id="addRecordSection" class="add-record-section hidden-section">
+  <h2>Add Test Meter Location</h2>
+
+  <label for="newAccount">Account Number</label>
+  <input id="newAccount" type="text" placeholder="Example: 321000123">
+
+  <label for="newAddress">Service Address</label>
+  <input id="newAddress" type="text" placeholder="Example: 321 Chorus St, San Diego, CA 92101">
+
+  <label for="newEcr">ECR Number</label>
+  <input id="newEcr" type="text" placeholder="Example: 11427489">
+
+  <label for="newMxu">MXU Number</label>
+  <input id="newMxu" type="text" placeholder="Example: 2240062427">
+
+  <label for="newMeterSize">Meter Size</label>
+  <input id="newMeterSize" type="text" placeholder="Example: 3/4'">
+
+  <label for="newMeterType">Meter Type</label>
+  <input id="newMeterType" type="text" placeholder="Example: ALLEGRO">
+
+  <label for="newRoute">Route</label>
+  <input id="newRoute" type="text" placeholder="Example: 321">
+
+  <label for="newNotes">Additional Notes</label>
+  <textarea id="newNotes" placeholder="Example: Meter is located near the ditch, by the tree stump."></textarea>
+
+  <label for="newImage">Attach Image</label>
+<input id="newImage" type="file" accept="image/*">
+
+<button onclick="addMeterRecord()">Add Test Record</button>
+<button onclick="updateMeterRecord()" class="update-button">Update Test Record</button>
+<button onclick="cancelEdit()" class="cancel-button">Cancel Edit</button>
+
+  <p id="formMessage"></p>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
